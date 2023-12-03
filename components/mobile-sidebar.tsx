@@ -7,12 +7,22 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetTrigger, SheetContent } from "./ui/sheet";
 
 const MobileSidebar = () => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
+
   return (
     <Sheet>
       <SheetTrigger>
-        <Button variant="ghost" size="icon" className="md:hidden">
+        {/* <Button variant="ghost" size="icon" className="md:hidden"> */}
           <Menu />
-        </Button>
+        {/* </Button> */}
       </SheetTrigger>
       <SheetContent side="left" className="p-0">
         <Sidebar />
