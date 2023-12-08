@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Download, ImageIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-
+import { toast } from "react-hot-toast";
 import Heading from "@/components/heading";
 import { Button } from "@/components/ui/button";
 import { Card, CardFooter } from "@/components/ui/card";
@@ -50,8 +50,12 @@ const PhotoPage = () => {
       const urls = response.data.map((image: { url: string }) => image.url);
 
       setPhotos(urls);
-    } catch (error: any) {
-      console.log(error);
+    } catch (err: any) {
+      if(err?.response?.status === 403){
+        toast.error("You only had 10 generations.");
+      }else{
+        toast.error("Something went wrong!!");
+      }
     } finally {
       router.refresh();
     }

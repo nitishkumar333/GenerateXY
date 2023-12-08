@@ -1,6 +1,7 @@
 "use client";
 import axios from "axios";
 import * as z from "zod";
+import { toast } from "react-hot-toast";
 import Heading from "@/components/heading";
 import { MessageSquare } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -44,7 +45,11 @@ const ConversationPage = () => {
       setMessages((current) => [...current, userMessage, response.data]);
       form.reset();
     } catch (err: any) {
-      console.log(err);
+      if(err?.response?.status === 403){
+        toast.error("You only had 10 generations.");
+      }else{
+        toast.error("Something went wrong!!");
+      }
     } finally {
       router.refresh();
     }
