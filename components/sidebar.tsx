@@ -45,21 +45,10 @@ const routes = [
     href: "/video",
   },
   {
-    label: "Music Generation",
-    icon: Music,
-    color: "text-emerald-500",
-    href: "/music",
-  },
-  {
     label: "Code Generation",
     icon: Code,
     color: "text-green-700",
     href: "/code",
-  },
-  {
-    label: "Settings",
-    icon: Settings,
-    href: "/settings",
   },
 ];
 
@@ -77,7 +66,7 @@ const Sidebar = ({ apiLimitCount = 0 }: SidebarProps) => {
             <Image fill alt="Logo" src="/logo2.png" />
           </div>
           <h1 className={cn("text-2xl font-bold", poppins.className)}>
-            Genius
+            GenerateXY
           </h1>
         </Link>
         <div className="space-y-1">

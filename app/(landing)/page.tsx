@@ -1,10 +1,8 @@
-import { LandingNavbar } from "@/components/landing-navbar";
 import { LandingHero } from "@/components/landing-hero";
 
 const LandingPage = () => {
   return (
-    <div className="h-full ">
-      <LandingNavbar />
+    <div className="h-full grid h-screen place-items-center">
       <LandingHero />
     </div>
   );
