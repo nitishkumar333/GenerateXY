@@ -11,7 +11,6 @@ const DashboardLayout = async ({ children }: { children: React.ReactNode }) => {
         <Sidebar apiLimitCount={apiLimitCount}/>
       </div>
       <main className="md:pl-72">
-        {/*@ts-expect-error Async server Component*/}
         <Navbar />
         {children}
       </main>
